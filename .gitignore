@@ -1,7 +1,11 @@
 # compiled output
 /dist
 /node_modules
-
+# ENVS
+.env
+# infra
+/infra
+skaffold.yaml
 # Logs
 logs
 *.log
