@@ -16,21 +16,21 @@ export class ClientsService {
   }
 
   public async createClient(body: ClientDto): Promise<any> {
-    const { email, password } = body;
+    const { email, cpf } = body;
     const existingUser = await this.clientsReposytory.findByEmail(email);
 
     if (existingUser) {
       throw new HttpException('User already exists', HttpStatus.CONFLICT);
     }
-    body.password = await Password.toHash(password);
+    body.cpf = await Password.toHash(cpf);
 
     return this.clientsReposytory.createClient(body);
   }
 
   public async updateClient(id: string, body: ClientDto): Promise<any> {
-    const { email, password, name } = body;
+    const { email, cpf, name, sex } = body;
 
-    if (!name && !password && !email) {
+    if (!name && !cpf && !email && !sex) {
       throw new HttpException(
         'At least one field must be informed',
         HttpStatus.BAD_REQUEST,

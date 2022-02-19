@@ -6,9 +6,12 @@ export class ClientDto {
   @IsEmail()
   email: string;
 
-  @Length(8)
-  password: string;
+  @Length(11, 11)
+  cpf: string;
 
   @IsNotEmpty()
   name: string;
+
+  @IsNotEmpty()
+  sex: 'male' | 'female';
 }

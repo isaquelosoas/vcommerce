@@ -9,5 +9,8 @@ export class UpdateClientDto extends ClientDto {
   email: string;
 
   @IsOptional()
-  password: string;
+  cpf: string;
+
+  @IsOptional()
+  sex: 'male' | 'female';
 }

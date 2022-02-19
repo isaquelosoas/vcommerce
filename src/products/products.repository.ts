@@ -7,24 +7,32 @@ export class ProductsRepository {
     return [
       {
         id: 'asdasdasd',
-        description: 'descrição padrão',
+        fabrication: 'descrição padrão',
         name: 'nome',
         price: 11,
+        size: 14,
       },
     ];
   }
 
   public async findById(id: string): Promise<ProductDto> {
-    return { id: id, description: 'descrição padrão', name: 'nome', price: 11 };
+    return {
+      id: id,
+      fabrication: 'descrição padrão',
+      name: 'nome',
+      price: 11,
+      size: 16,
+    };
   }
 
   public async searchProductsByName(name: string): Promise<ProductDto[]> {
     return [
       {
         id: 'asdasdasd',
-        description: 'descrição padrão',
+        fabrication: 'descrição padrão',
         name: 'nome',
         price: 11,
+        size: 12,
       },
     ];
   }

@@ -8,8 +8,11 @@ export class ProductDto {
   price: number;
 
   @IsNotEmpty()
-  description: string;
+  fabrication: string;
 
   @IsNotEmpty()
   name: string;
+
+  @IsNotEmpty()
+  size: number;
 }

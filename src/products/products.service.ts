@@ -5,7 +5,7 @@ import { ProductsRepository } from './products.repository';
 @Injectable()
 export class ProductsService {
   constructor(private readonly productsRepository: ProductsRepository) {}
-  
+
   public async getProducts(query) {
     if (query) {
       return this.productsRepository.searchProductsByName(query);
@@ -22,9 +22,9 @@ export class ProductsService {
   }
 
   public async updateProduct(id: string, body: ProductDto): Promise<any> {
-    const { price, description, name } = body;
+    const { price, fabrication, name, size } = body;
 
-    if (!name && !price && !description) {
+    if (!name && !price && !fabrication && !size) {
       throw new HttpException(
         'At least one field must be informed',
         HttpStatus.BAD_REQUEST,
