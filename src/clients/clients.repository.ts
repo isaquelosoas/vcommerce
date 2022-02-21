@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ClientDto } from 'src/clients/dto/client.dto';
+import { PrismaClient } from '@prisma/client';
 
+const prisma = new PrismaClient();
 @Injectable()
 export class ClientsRepository {
   public async findAll(): Promise<any> {
@@ -16,7 +18,15 @@ export class ClientsRepository {
   }
 
   public async createClient(body: ClientDto): Promise<any> {
-    return body;
+    const { email, cpf, name, sex } = body;
+    return await prisma.client.create({
+      data: {
+        name,
+        email,
+        cpf,
+        sex,
+      },
+    });
   }
 
   public async findByIdAndUpdate(id: string, body: ClientDto): Promise<any> {

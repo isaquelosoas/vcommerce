@@ -1,4 +1,10 @@
-import { IsEmail, IsNotEmpty, IsOptional, Length } from 'class-validator';
+import {
+  Contains,
+  IsEmail,
+  IsNotEmpty,
+  IsOptional,
+  Length,
+} from 'class-validator';
 
 export class ClientDto {
   id: string;

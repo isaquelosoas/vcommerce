@@ -16,8 +16,7 @@ model Client {
   email     String   @unique
   cpf       String   @unique
   sex       String
-  createdAt DateTime
-  updatedAt DateTime
+  createdAt DateTime @default(now())
 
 }
 
@@ -27,7 +26,6 @@ model Product {
   price       Int
   fabrication String
   size        Float
-  createdAt   DateTime
-  updatedAt   DateTime
+  createdAt   DateTime @default(now())
 
 }
